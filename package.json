@@ -1,0 +1,40 @@
+{
+  "name": "lambdatest-playwright-demo",
+  "version": "1.0.0",
+  "description": "Automated tests for LambdaTest Selenium Playground using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env EXECUTION_MODE=local playwright test",
+    "test:headed": "cross-env EXECUTION_MODE=local playwright test --headed",
+    "test:debug": "cross-env EXECUTION_MODE=local playwright test --debug",
+    "test:ui": "cross-env EXECUTION_MODE=local playwright test --ui",
+    "test:lambdatest": "cross-env EXECUTION_MODE=lambdatest playwright test",
+    "test:local": "cross-env EXECUTION_MODE=local playwright test",
+    "test:ci": "cross-env EXECUTION_MODE=ci playwright test",
+    "report": "playwright show-report",
+    "install:browsers": "playwright install",
+    "clean": "rimraf test-results playwright-report screenshots",
+    "setup": "npm run install:browsers",
+    "pretest": "npm run clean"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "e2e",
+    "lambdatest"
+  ],
+  "author": "Juan Jimenez",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.5.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.6.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
