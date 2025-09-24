@@ -1,2 +1,42 @@
-[InternetShortcut]
-URL=file:///c%3A/Playwright_101/.gitpod.yml
+tasks:
+  - name: Install Project Dependencies
+    init: |
+
+      # Install Node.js dependencies
+      npm install
+
+      # Install Playwright browsers
+      npx playwright install
+
+      # Install system dependencies
+      npx playwright install-deps
+
+    command: |
+      echo "  npm run test:lambdatest - Run tests on Lambda"
+
+ports:
+  - port: 3000
+    onOpen: ignore
+  - port: 9323
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - ms-playwright.playwright
+    - esbenp.prettier-vscode
+    - ms-vscode.vscode-typescript-next
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: false
+    addBadge: false
+
+workspaceLocation: '.'
+
+env:
+  NODE_ENV: development
